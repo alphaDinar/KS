@@ -20,7 +20,9 @@
   <section class="page">
     <section class="topArea">
       <section class="topNav">
-        <logo-tag style="background-image: url(ks.png);"></logo-tag>
+        <logo-tag>
+          <img src="logo2.png" alt="">
+        </logo-tag>
         <nav>
           <a href="">Home</a>
           <a href="">About</a>
@@ -28,10 +30,12 @@
           <a href="">Blog</a>
           <a href="">Donations</a>
           <a href="">Contact</a>
+          <legend>
+            <a href="tel:+233204932808">
+              <span>+233204932808</span><i class="material-symbols-outlined">smartphone</i>
+            </a>
+          </legend>
         </nav>
-        <legend>
-          <span>+233204932808</span><i class="material-symbols-outlined">smartphone</i>
-        </legend>
       </section>
       <section class="headBox">
         <article>
@@ -39,8 +43,8 @@
             <strong>Welcome to KS company limited, Creating a high business hub for all</strong>
             <small>Enjoy a healthy and a happy services in all our subsidiaries company's</small>
           </div>
-          <button>
-            Start Consulting <i class="material-symbols-outlined">chevron_right</i>
+          <button id="donate">
+            Donate <i class="material-symbols-outlined">paid</i>
           </button>
         </article>
       </section>
@@ -93,7 +97,7 @@
     <style>
       .topArea {
         width: 90%;
-        padding: 1.5vh 5%;
+        padding: 2vh 5%;
         position: relative;
         min-height: 65vh;
         display: flex;
@@ -107,6 +111,7 @@
 
       .topNav {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
         z-index: 10;
@@ -118,10 +123,12 @@
       }
 
       .topNav nav a {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        color: white;
+        color: black;
       }
 
-      .topNav legend {
+      .topNav legend a {
         display: flex;
         align-items: center;
         font-size: 1.1rem;
@@ -195,9 +202,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        -webkit-transform: skew(-19deg);
-        -moz-transform: skew(-19deg);
-        -o-transform: skew(-19deg);
+        /* -webkit-transform: skew(-19deg); */
+        /* -moz-transform: skew(-19deg); */
+        /* -o-transform: skew(-19deg); */
         transition: 0.4s ease;
       }
 
@@ -207,13 +214,7 @@
         -o-transform: skew(0deg);
       }
 
-      @media all and (max-width:850px) {
-        .topArea {
-          gap: 10vh;
-          height: auto;
-          min-height: auto;
-        }
-
+      @media all and (max-width:1300px) {
         .topNav {
           flex-direction: column;
           gap: 1rem 0;
@@ -223,6 +224,14 @@
           justify-content: space-around;
           flex-wrap: wrap;
           gap: 0.3rem 2rem;
+        }
+      }
+
+      @media all and (max-width:850px) {
+        .topArea {
+          gap: 10vh;
+          height: auto;
+          min-height: auto;
         }
 
         .headBox {
@@ -341,8 +350,8 @@
           width: 90%;
           padding: 5vh 5%;
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-          gap: 50px;
+          grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+          gap: 2.5rem 0;
         }
 
         .service {
@@ -398,7 +407,8 @@
           text-align: center;
           align-items: center;
         }
-        .service strong{
+
+        .service strong {
           font-family: 'Alegreya Sans SC', sans-serif;
         }
 
@@ -412,12 +422,6 @@
 
         .service:hover .sPrismSmall {
           left: 20px;
-        }
-
-        @media all and (max-width:850px) {
-          .service {
-            margin: auto;
-          }
         }
       </style>
     </section>
@@ -520,47 +524,68 @@
             <span>Lorem ipsum dolor sectio sit amet consectetur adipisicing elit.</span>
             <small>23rd August, 2023</small>
             <i class="material-symbols-outlined">east</i>
-        </div>
-      </a>
-    </section>
+          </div>
+        </a>
+      </section>
     </section>
 
-          <script>
-        for (var i = 0; i < 7; i++) {
-          document.querySelector('.blogs').appendChild(document.querySelector('.blog').cloneNode(true))
-        }
-      </script>
+    <script>
+      for (var i = 0; i < 7; i++) {
+        document.querySelector('.blogs').appendChild(document.querySelector('.blog').cloneNode(true))
+      }
+    </script>
 
     <style>
-      .blogBox{
+      .blogBox {
         width: 90%;
         padding: 3vh 5%;
         display: flex;
         flex-direction: column;
         gap: 1.3rem 0;
       }
-      .blogBox strong{
+
+      .blogBox strong {
         font-size: 2rem;
       }
-      .blogBox strong sub{
+
+      .blogBox strong sub {
         width: 40px;
         height: 5px;
         display: block;
         background: black;
       }
-      .blogs{
+
+      .blogs {
         display: grid;
         gap: 1.5rem 0;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       }
-      .blog{
+
+      .blog {
         width: 300px;
         display: flex;
         flex-direction: column;
         gap: 0.5rem 0;
         border: 2px solid lightgray;
       }
-      .blog div{
+
+      @media all and (max-width:850px) {
+        .blogBox {
+          align-items: center;
+        }
+
+        .blogBox strong sub {
+          width: 100%;
+        }
+
+        .service,
+        .blog {
+          margin: auto;
+        }
+
+      }
+
+      .blog div {
         display: block;
         width: 90%;
         align-items: flex-start;
@@ -570,12 +595,14 @@
         margin-bottom: 10px;
         padding: 0 5%;
       }
-      .blog img{
+
+      .blog img {
         width: 100%;
         height: 200px;
         object-fit: cover;
       }
-      .blog i{
+
+      .blog i {
         border: 1px solid black;
         padding: 3px 10px;
         border-radius: 100px;
@@ -584,14 +611,43 @@
 
 
     <footer>
-
+      <logo-tag>
+        <img src="logo2.png" alt="">
+      </logo-tag>
+      <section class="links">
+        <section>
+          <a href="">KS TRANSPORT</a>
+          <a href="">KS MINERAL WATER</a>
+          <a href="">KS FOUNDATION</a>
+          <a href="">KS ADVERTISING AGENCY</a>
+          <a href="">KS FARMS</a>
+          <a href="">KS IMPORT AND EXPORT</a>
+          <a href="">KS ENTERTAINMENT</a>
+        </section>
+        <section>
+          <a href="tel:+233204932808">+233204932808</a>
+        </section>
+      </section>
     </footer>
     <style>
-      footer{
-        height: 30vh;
+      footer {
         background: black;
         width: 90%;
         padding: 3vh 5%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem 0;
+      }
+
+      footer section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        color: white;
+      }
+
+      footer section:nth-child(1) a {
+        font-family: 'Alegreya Sans SC', sans-serif;
       }
     </style>
   </section>

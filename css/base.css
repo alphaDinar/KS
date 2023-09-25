@@ -3,6 +3,7 @@
 
 :root {
   --theme: #ffee02;
+  /* --theme : #26a7de; */
   --foooter : black
 }
 
@@ -16,20 +17,16 @@
 logo-tag{
   display: flex;
   color: var(--color);
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* background: var(--theme); */
-  background: white;
-  background-position: center;
-  background-size: cover;
 }
-logo-tag span{
-  font-size: 2.5rem;
-  font-family: 'DessauProDrei';
+logo-tag img{
+  width: 300px;
+}
+
+@media all and (max-width:650px){
+  logo-tag img{
+    width: 80%;
+    padding: 0 10%;
+  }
 }
 
 * {
