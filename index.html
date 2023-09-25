@@ -12,6 +12,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
     integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <link rel="stylesheet" href="css/base.css">
   <title>KS</title>
 </head>
@@ -36,6 +38,7 @@
             </a>
           </legend>
         </nav>
+        <button class="material-symbols-outlined" onclick="toggleMenu()">menu</button>
       </section>
       <section class="headBox">
         <article>
@@ -57,6 +60,16 @@
 
 
     </section>
+
+
+    <script>
+      const topNavMenu = document.querySelector('.topNav nav')
+
+      const toggleMenu =()=>{
+        topNavMenu.classList.toggle('change')
+      }
+    </script>
+
     <style>
       .prismBox {
         position: absolute;
@@ -121,7 +134,16 @@
         display: flex;
         gap: 0 1.5rem;
       }
-
+      .topNav button{
+        height: 40px;
+        width: 40px;
+        background: var(--theme);
+        color: black;
+        border-radius: 5px;
+        align-items: center;
+        justify-content: center;
+        display: none;
+      }
       .topNav nav a {
         font-size: 1rem;
         color: white;
@@ -154,7 +176,7 @@
       }
 
       .headBox {
-        z-index: 10;
+        z-index: 1;
       }
 
       .headBox article {
@@ -163,6 +185,7 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 2rem 0;
+        z-index: -1;
       }
 
       .headBox article div {
@@ -179,7 +202,7 @@
         color: rgb(227, 227, 227);
       }
 
-      .headBox article button {
+      #donate {
         display: flex;
         align-items: center;
         gap: 0 1rem;
@@ -189,10 +212,9 @@
         background: var(--theme);
         border: 2px solid var(--theme);
         cursor: pointer;
-        font-size: 1.1rem;
       }
 
-      .headBox article button i {
+      #donate i {
         position: absolute;
         right: -10px;
         width: 50px;
@@ -202,13 +224,10 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        /* -webkit-transform: skew(-19deg); */
-        /* -moz-transform: skew(-19deg); */
-        /* -o-transform: skew(-19deg); */
         transition: 0.4s ease;
       }
 
-      .headBox article button:hover i {
+      #donate:hover i {
         -webkit-transform: skew(0deg);
         -moz-transform: skew(0deg);
         -o-transform: skew(0deg);
@@ -261,13 +280,40 @@
         .prismBox {
           display: none;
         }
+        .topNav nav{
+          position: fixed;
+          top: -500px;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+          background: black;
+          color: white;
+          z-index: 1000;
+          transition: 0.4s ease;
+          gap: 1rem 0;
+          padding: 20px 0;
+        }
+        .topNav nav a{
+          color: white;
+        }
+        .topNav nav.change{
+          top: 0;
+        }
+        .topNav button{
+          display: flex;
+          position: fixed;
+          top: 0;
+          right: 0;
+          border-radius: 0 0 0 10px;
+          z-index: 1100;
+        }
       }
     </style>
 
 
 
     <section class="serviceBox">
-      <div class="service">
+      <div class="service" data-aos="fade-up">
         <sub class="sPrism"></sub>
         <sub class="sPrismSmall">
           <img src="Logos/trans.png">
@@ -278,7 +324,7 @@
           <a class="material-symbols-outlined">double_arrow</a>
         </p>
       </div>
-      <div class="service">
+      <div class="service" data-aos="fade-up">
         <sub class="sPrism"></sub>
         <sub class="sPrismSmall">
           <img src="Logos/ks mineral.png">
@@ -289,7 +335,7 @@
           <a class="material-symbols-outlined">double_arrow</a>
         </p>
       </div>
-      <div class="service">
+      <div class="service" data-aos="fade-up">
         <sub class="sPrism"></sub>
         <sub class="sPrismSmall">
           <i class="material-symbols-outlined">volunteer_activism</i>
@@ -300,7 +346,7 @@
           <a class="material-symbols-outlined">double_arrow</a>
         </p>
       </div>
-      <div class="service">
+      <div class="service" data-aos="fade-up">
         <sub class="sPrism"></sub>
         <sub class="sPrismSmall">
           <i class="material-symbols-outlined">support_agent</i>
@@ -311,7 +357,7 @@
           <a class="material-symbols-outlined">double_arrow</a>
         </p>
       </div>
-      <div class="service">
+      <div class="service" data-aos="fade-up">
         <sub class="sPrism"></sub>
         <sub class="sPrismSmall">
           <i class="material-symbols-outlined">agriculture</i>
@@ -322,7 +368,7 @@
           <a class="material-symbols-outlined">double_arrow</a>
         </p>
       </div>
-      <div class="service">
+      <div class="service" data-aos="fade-up">
         <sub class="sPrism"></sub>
         <sub class="sPrismSmall">
           <i class="material-symbols-outlined">local_shipping</i>
@@ -333,7 +379,7 @@
           <a class="material-symbols-outlined">double_arrow</a>
         </p>
       </div>
-      <div class="service">
+      <div class="service" data-aos="fade-up">
         <sub class="sPrism"></sub>
         <sub class="sPrismSmall">
           <i class="material-symbols-outlined">headphones</i>
@@ -517,7 +563,7 @@
     <section class="blogBox">
       <strong>Hello KS <sub></sub></strong>
       <section class="blogs">
-        <a class="blog">
+        <a class="blog" data-aos="fade-up">
           <img src="Logos/blog.jpeg" alt="">
           <div>
             <h3>Blog</h3>
@@ -609,48 +655,146 @@
       }
     </style>
 
+    <section class="donateBox">
+      <img src="worker.avif" alt="">
+      <p data-aos="fade-up">
+        <strong>Every contribution becomes a catalyst for change.</strong>
+        <button id="donate">
+          Donate <i class="material-symbols-outlined">paid</i>
+        </button>
+      </p>
+    </section>
+
+    <style>
+      .donateBox{
+        width: 90%;
+        padding: 5vh 5%;
+        /* height: 50vh; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0 2rem;
+        background: ghostwhite;
+      }
+      .donateBox img{
+        width: 230px;
+        height: 350px;
+        border-radius: 200px;
+        object-fit: cover;
+      }
+      .donateBox p{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem 0;
+      }
+      .donateBox strong{
+        display: flex;
+        width: 400px;
+        /* border: 1px solid black; */
+        font-size: 2rem;
+      }
+      .donateBox button{
+        background: var(--theme);
+      }
+
+
+    </style>
+
 
     <footer>
       <logo-tag>
         <img src="logo2.png" alt="">
       </logo-tag>
-      <section class="links">
+      <main class="links">
         <section>
-          <a href="">KS TRANSPORT</a>
-          <a href="">KS MINERAL WATER</a>
-          <a href="">KS FOUNDATION</a>
-          <a href="">KS ADVERTISING AGENCY</a>
-          <a href="">KS FARMS</a>
-          <a href="">KS IMPORT AND EXPORT</a>
-          <a href="">KS ENTERTAINMENT</a>
+          <a href=""><i class="material-symbols-outlined">directions_bus</i> <span>KS Transport</span></a>
+          <a href=""><i class="material-symbols-outlined">water_bottle</i> <span>KS mineral water</span> </a>
+          <a href=""><i class="material-symbols-outlined">volunteer_activism</i> KS Foundation</a>
+          <a href=""><i class="material-symbols-outlined">support_agent</i> KS Advertising agency</a>
         </section>
+        <hr>
         <section>
-          <a href="tel:+233204932808">+233204932808</a>
+          <a href=""><i class="material-symbols-outlined">agriculture</i> KS Farms</a>
+          <a href=""><i class="material-symbols-outlined">local_shipping</i> KS Import and export</a>
+          <a href=""><i class="material-symbols-outlined">headphones</i> KS Entertainment</a>
         </section>
-      </section>
+        <hr>
+        <section>
+          <a href="tel:+233204932808"><i class="material-symbols-outlined">smartphone</i> <span>+233204932808</span></a>
+          <a href="mailto:"><i class="material-symbols-outlined">mail</i> <span>ks@mail.com</span></a>
+        </section>
+      </main>
     </footer>
     <style>
       footer {
         background: black;
         width: 90%;
-        padding: 3vh 5%;
+        padding: 8vh 5%;
         display: flex;
         flex-direction: column;
-        gap: 1rem 0;
+        gap: 2rem 0;
       }
-
-      footer section {
+      footer main{
+        display: flex;
+        gap: 0 5rem;
+        flex-wrap: wrap;
+      }
+      footer section{
         display: flex;
         flex-direction: column;
-        gap: 0.3rem;
+        gap: 0.4rem;
+      }
+      footer section a{
         color: white;
       }
+      footer a{
+        display: flex;
+        align-items: center;
+        gap: 0 0.5rem;
+      }
 
-      footer section:nth-child(1) a {
-        font-family: 'Alegreya Sans SC', sans-serif;
+      footer section:nth-last-child(1) a {
+        color: wheat;
+      }
+      footer hr{
+        height: 100px;
+        width: 2px;
+        background: white;
+      }
+      @media all and (max-width:850px){
+        .donateBox{
+          flex-direction: column;
+          gap: 2rem 0;
+        }
+        .donateBox strong, .donateBox p{
+          width: 100%;
+          text-align: center;
+          align-items: center;
+        }
+        footer, footer .links{
+          /* display: flex; */
+          flex-direction: column;
+          text-align: center;
+        }
+        footer{
+          align-items: center;
+        }
+        footer .links{
+          gap: 1.5rem 0;
+
+          align-items: flex-start;
+        }
+        footer hr{
+          display: none;
+        }
       }
     </style>
   </section>
+
+  <script>
+    AOS.init();
+  </script>
 </body>
 
 </html>

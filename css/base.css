@@ -14,6 +14,12 @@
   font-style: normal;
 }
 
+
+#donate{
+  font-family: 'DessauProDrei';
+  font-size: 2rem;
+}
+
 logo-tag{
   display: flex;
   color: var(--color);
