@@ -261,7 +261,7 @@
       <div class="service">
         <sub class="sPrism"></sub>
         <sub class="sPrismSmall">
-          <i class="material-symbols-outlined">departure_board</i>
+          <img src="Logos/trans.png">
         </sub>
         <p>
           <strong>KS TRANSPORT</strong>
@@ -272,7 +272,7 @@
       <div class="service">
         <sub class="sPrism"></sub>
         <sub class="sPrismSmall">
-          <i class="material-symbols-outlined">water_bottle</i>
+          <img src="Logos/ks mineral.png">
         </sub>
         <p>
           <strong>KS MINERAL WATER</strong>
@@ -383,8 +383,11 @@
           transition: 0.4s ease;
         }
 
-        .sPrismSmall i {
-          font-size: 3rem;
+        .sPrismSmall img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          aspect-ratio: 4/3;
         }
 
         .service p {

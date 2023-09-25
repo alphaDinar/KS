@@ -16,13 +16,14 @@
 logo-tag{
   display: flex;
   color: var(--color);
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--theme);
+  /* background: var(--theme); */
+  background: white;
   background-position: center;
   background-size: cover;
 }
