@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC&display=swap');
+
+:root {
+  --theme: #ffee02;
+  --foooter : black
+}
+
+@font-face {
+  font-family: 'DessauProDrei';
+  src: url('DessauProDrei.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+logo-tag{
+  display: flex;
+  color: var(--color);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--theme);
+}
+logo-tag span{
+  font-size: 2.5rem;
+  font-family: 'DessauProDrei';
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+body{
+
+  background: var(--bg);
+}
+
+
+.divider {
+  width: 100%;
+  margin: 8vh auto;
+  border-top: 2px dotted var(--color);
+}
+.seperator {
+  height: 100%;
+  border-right: 2px dotted var(--color);
+}

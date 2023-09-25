@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/eb75260fb3.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+    integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="css/base.css">
+  <title>KS</title>
+</head>
+
+<body>
+  <section class="page">
+    <section class="topArea">
+      <section class="topNav">
+        <logo-tag>
+          <span>KS</span>
+        </logo-tag>
+        <nav>
+          <a href="">Home</a>
+          <a href="">About</a>
+          <a href="">Services</a>
+          <a href="">Blog</a>
+          <a href="">Donations</a>
+          <a href="">Contact</a>
+        </nav>
+        <legend>
+          <span>+2330000000</span><i class="material-symbols-outlined">smartphone</i>
+        </legend>
+      </section>
+      <section class="headBox">
+        <article>
+          <div>
+            <strong>Welcome to KS: Pioneering Excellence Across Industries</strong>
+            <small>Celebrating Diversity in Innovation: Explore the Diverse Portfolio of KS Companies</small>
+          </div>
+          <button>
+            Start Consulting <i class="material-symbols-outlined">chevron_right</i>
+          </button>
+        </article>
+      </section>
+
+      <div class="prismBox">
+        <div class="prism">
+        </div>
+        <div class="prismSmall"></div>
+      </div>
+
+
+    </section>
+    <style>
+      .prismBox {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 50%;
+      }
+
+      .prism {
+        top: 0;
+        right: 100px;
+        position: absolute;
+        height: 100%;
+        width: 300px;
+        -webkit-transform: skew(-19deg);
+        -moz-transform: skew(-19deg);
+        -o-transform: skew(-19deg);
+        background: var(--theme);
+        opacity: 0.4;
+        z-index: 1;
+      }
+
+      .prismSmall {
+        position: absolute;
+        height: 200px;
+        width: 200px;
+        opacity: 1;
+        background: var(--theme);
+        -webkit-transform: skew(-19deg);
+        -moz-transform: skew(-19deg);
+        -o-transform: skew(-19deg);
+        bottom: 50px;
+        right: 50px;
+      }
+    </style>
+
+    <style>
+      .topArea {
+        width: 90%;
+        padding: 1.5vh 5%;
+        position: relative;
+        min-height: 65vh;
+        display: flex;
+        flex-direction: column;
+        gap: 20vh 0;
+        background-position: center;
+        background-size: cover;
+        overflow-x: hidden;
+        background-image: url(bg2.jpg);
+      }
+
+      .topNav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 10;
+      }
+
+      .topNav nav {
+        display: flex;
+        gap: 0 1.5rem;
+      }
+
+      .topNav nav a {
+        font-size: 1.1rem;
+      }
+
+      .topNav legend {
+        display: flex;
+        align-items: center;
+        font-size: 1.1rem;
+        border-radius: 50px;
+        background: var(--theme);
+      }
+
+      .topNav legend span {
+        background: var(--theme);
+        border-radius: 0 0 0 10px;
+      }
+
+      .topNav legend span,
+      .topNav legend i {
+        padding: 3px;
+      }
+
+      .topNav legend i {
+        height: 100%;
+        border-radius: 0 50%;
+        background: black;
+        color: white;
+      }
+
+      .headBox {
+        z-index: 10;
+      }
+
+      .headBox article {
+        max-width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem 0;
+      }
+
+      .headBox article div {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .headBox article strong {
+        font-size: 2.3rem;
+        color: white;
+      }
+
+      .headBox article small {
+        color: rgb(227, 227, 227);
+      }
+
+      .headBox article button {
+        display: flex;
+        align-items: center;
+        gap: 0 1rem;
+        padding: 10px 65px 10px 10px;
+        height: 50px;
+        position: relative;
+        background: var(--theme);
+        border: 2px solid var(--theme);
+        cursor: pointer;
+        font-size: 1.1rem;
+      }
+
+      .headBox article button i {
+        position: absolute;
+        right: -10px;
+        width: 50px;
+        height: 50px;
+        background: black;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-transform: skew(-19deg);
+        -moz-transform: skew(-19deg);
+        -o-transform: skew(-19deg);
+        transition: 0.4s ease;
+      }
+
+      .headBox article button:hover i {
+        -webkit-transform: skew(0deg);
+        -moz-transform: skew(0deg);
+        -o-transform: skew(0deg);
+      }
+
+      @media all and (max-width:850px) {
+        .topArea {
+          gap: 10vh;
+          height: auto;
+          min-height: auto;
+        }
+
+        .topNav {
+          flex-direction: column;
+          gap: 1rem 0;
+        }
+
+        .topNav nav {
+          justify-content: space-around;
+          flex-wrap: wrap;
+          gap: 0.3rem 2rem;
+        }
+
+        .headBox {
+          display: flex;
+          justify-content: center;
+          text-align: center;
+        }
+
+        .headBox article {
+          max-width: 100%;
+          align-items: center;
+        }
+
+        .prism {
+          width: 100px;
+          height: 300px;
+        }
+
+        .prismSmall {
+          bottom: revert;
+          top: 0;
+          right: -100px;
+        }
+      }
+
+      @media all and (max-width:650px) {
+        .prismBox {
+          display: none;
+        }
+      }
+    </style>
+
+
+
+    <section class="serviceBox">
+      <div class="service">
+        <sub class="sPrism"></sub>
+        <sub class="sPrismSmall">
+          <i class="material-symbols-outlined">departure_board</i>
+        </sub>
+        <p>
+          <strong>KS TRANSPORT</strong>
+          <small>Lorem ipsum dolor sit amet consectetur adipisicing elit.</small>
+          <a class="material-symbols-outlined">double_arrow</a>
+        </p>
+      </div>
+      <div class="service">
+        <sub class="sPrism"></sub>
+        <sub class="sPrismSmall">
+          <i class="material-symbols-outlined">water_bottle</i>
+        </sub>
+        <p>
+          <strong>KS MINERAL WATER</strong>
+          <small>Lorem ipsum dolor sit amet consectetur adipisicing elit.</small>
+          <a class="material-symbols-outlined">double_arrow</a>
+        </p>
+      </div>
+      <div class="service">
+        <sub class="sPrism"></sub>
+        <sub class="sPrismSmall">
+          <i class="material-symbols-outlined">volunteer_activism</i>
+        </sub>
+        <p>
+          <strong>KS FOUNDATION</strong>
+          <small>Reaching out to lives</small>
+          <a class="material-symbols-outlined">double_arrow</a>
+        </p>
+      </div>
+      <div class="service">
+        <sub class="sPrism"></sub>
+        <sub class="sPrismSmall">
+          <i class="material-symbols-outlined">support_agent</i>
+        </sub>
+        <p>
+          <strong>KS ADVERTISING AGENCY</strong>
+          <small>Stylish Brand!!</small>
+          <a class="material-symbols-outlined">double_arrow</a>
+        </p>
+      </div>
+      <div class="service">
+        <sub class="sPrism"></sub>
+        <sub class="sPrismSmall">
+          <i class="material-symbols-outlined">agriculture</i>
+        </sub>
+        <p>
+          <strong>KS FARMS</strong>
+          <small>Lorem ipsum dolor sit amet consectetur adipisicing elit.</small>
+          <a class="material-symbols-outlined">double_arrow</a>
+        </p>
+      </div>
+      <div class="service">
+        <sub class="sPrism"></sub>
+        <sub class="sPrismSmall">
+          <i class="material-symbols-outlined">local_shipping</i>
+        </sub>
+        <p>
+          <strong>KS EXPORT AND IMPORT SERVICES</strong>
+          <small>Lorem ipsum dolor sit amet consectetur adipisicing elit.</small>
+          <a class="material-symbols-outlined">double_arrow</a>
+        </p>
+      </div>
+
+
+
+      <style>
+        .serviceBox {
+          width: 90%;
+          padding: 5vh 5%;
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+          gap: 50px;
+          /* grid-gap: 2rem; */
+        }
+
+        .service {
+          border: 2px solid lightgray;
+          /* border-radius: 10px; */
+          width: 250px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 60px 20px;
+          cursor: pointer;
+          position: relative;
+        }
+
+        .sPrism {
+          display: block;
+          width: 120px;
+          left: 50px;
+          top: 0;
+          position: absolute;
+          height: 100%;
+          -webkit-transform: skew(-19deg);
+          -moz-transform: skew(-19deg);
+          -o-transform: skew(-19deg);
+          background: whitesmoke;
+        }
+
+        .sPrismSmall {
+          width: 80px;
+          height: 60px;
+          position: absolute;
+          top: -20px;
+          left: -2px;
+          /* -webkit-transform: skew(-19deg); */
+          /* -moz-transform: skew(-19deg); */
+          /* -o-transform: skew(-19deg); */
+          background: white;
+          border: 2px solid var(--theme);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: 0.4s ease;
+        }
+
+        .sPrismSmall i {
+          font-size: 3rem;
+        }
+
+        .service p {
+          z-index: 10;
+          display: flex;
+          gap: 0.5rem 0;
+          flex-direction: column;
+          text-align: center;
+          align-items: center;
+        }
+        .service strong{
+          font-family: 'Alegreya Sans SC', sans-serif;
+        }
+
+        .service p a {
+          color: var(--theme);
+          padding: 3px;
+          border-radius: 2px;
+          color: black;
+          border: 1px solid var(--theme);
+        }
+
+        .service:hover .sPrismSmall {
+          left: 20px;
+        }
+
+        @media all and (max-width:850px) {
+          .service {
+            margin: auto;
+          }
+        }
+      </style>
+    </section>
+
+    <section class="aboutBox">
+      <section class="left">
+        <img src="worker.avif" alt="">
+        <img src="worker2.jpg" alt="">
+      </section>
+      <section class="right">
+        <p>
+          <strong>KS provides a full range of services</strong>
+          <span>In the dynamic landscape of today's business world, KS stands as a beacon of innovation and
+            excellence.</span>
+        </p>
+        <p>Our journey began with a singular vision: to make a meaningful impact on the world through our endeavors.
+          Over the years, this vision has manifested in a tapestry of successful businesses, each contributing to the
+          advancement of its respective industry.</p>
+      </section>
+    </section>
+
+    <style>
+      .aboutBox {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        background: ghostwhite;
+        padding: 5vh 5%;
+      }
+
+      .aboutBox .left {
+        /* border: 2px solid black; */
+        display: flex;
+        gap: 0.5rem;
+        align-items: flex-end;
+      }
+
+      .aboutBox .right {
+        max-width: 500px;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem 0;
+      }
+
+      .aboutBox .right p:nth-child(1) {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        left: -50px;
+      }
+
+      .aboutBox .right strong {
+        font-size: 1.5rem;
+      }
+
+      .aboutBox .left img:nth-child(1) {
+        height: 370px;
+        width: 250px;
+        object-fit: cover;
+        position: relative;
+        bottom: 25px;
+      }
+
+      .aboutBox .left img:nth-child(2) {
+        width: 280px;
+        height: 170px;
+        object-fit: cover;
+      }
+
+      @media all and (max-width:1050px) {
+        .aboutBox {
+          align-items: center;
+          flex-direction: column;
+        }
+
+        .aboutBox .right p:nth-child(1) {
+          left: revert;
+        }
+      }
+
+      @media all and (max-width:650px) {
+        .aboutBox .left {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .aboutBox .right {
+          text-align: center;
+        }
+      }
+    </style>
+
+    <section class="blogBox">
+      <strong>Blog <sub></sub></strong>
+      <section class="blogs">
+        <a class="blog">
+          <img src="worker.avif" alt="">
+          <div>
+            <h3>SK FOUNDATION</h3>
+            <span>Lorem ipsum dolor sectio sit amet consectetur adipisicing elit.</span>
+            <small>23rd August, 2023</small>
+            <i class="material-symbols-outlined">east</i>
+        </div>
+      </a>
+    </section>
+    </section>
+
+          <script>
+        for (var i = 0; i < 7; i++) {
+          document.querySelector('.blogs').appendChild(document.querySelector('.blog').cloneNode(true))
+        }
+      </script>
+
+    <style>
+      .blogBox{
+        width: 90%;
+        padding: 3vh 5%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.3rem 0;
+      }
+      .blogBox strong{
+        font-size: 2rem;
+      }
+      .blogBox strong sub{
+        width: 40px;
+        height: 5px;
+        display: block;
+        background: black;
+      }
+      .blogs{
+        display: grid;
+        gap: 1.5rem 0;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
+      .blog{
+        width: 300px;
+        /* height: 400px; */
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem 0;
+        border: 2px solid lightgray;
+      }
+      .blog div{
+        display: block;
+        width: 90%;
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem 0;
+        margin-bottom: 10px;
+        /* background: salmon; */
+        padding: 0 5%;
+      }
+      .blog img{
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      .blog i{
+        border: 1px solid black;
+        padding: 3px 10px;
+        border-radius: 100px;
+        /* width: 50px; */
+      }
+    </style>
+
+
+    <footer>
+
+    </footer>
+    <style>
+      footer{
+        min-height: 50vh;
+        background: black;
+        width: 90%;
+        padding: 3vh 5%;
+      }
+    </style>
+  </section>
+</body>
+
+</html>
