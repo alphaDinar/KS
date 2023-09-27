@@ -12,33 +12,19 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
     integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/base.css">
-  <title>KS</title>
+  <title>KS - Home</title>
 </head>
 
 <body>
   <section class="page">
     <section class="topArea">
       <section class="topNav">
-        <logo-tag>
-          <img src="logo2.png" alt="">
-        </logo-tag>
-        <nav>
-          <a href="">Home</a>
-          <a href="">About</a>
-          <a href="">Services</a>
-          <a href="">Blog</a>
-          <a href="">Donations</a>
-          <a href="">Contact</a>
-          <legend>
-            <a href="tel:+233204932808">
-              <span>+233204932808</span><i class="material-symbols-outlined">smartphone</i>
-            </a>
-          </legend>
-        </nav>
-        <button class="material-symbols-outlined" onclick="toggleMenu()">menu</button>
+        
       </section>
       <section class="headBox">
         <article>
@@ -46,9 +32,9 @@
             <strong>Welcome to KS company limited, Creating a high business hub for all</strong>
             <small>Enjoy a healthy and a happy services in all our subsidiaries company's</small>
           </div>
-          <button id="donate">
+          <a href="donate.html" id="donate">
             Donate <i class="material-symbols-outlined">paid</i>
-          </button>
+          </a>
         </article>
       </section>
 
@@ -57,260 +43,7 @@
         </div>
         <div class="prismSmall"></div>
       </div>
-
-
     </section>
-
-
-    <script>
-      const topNavMenu = document.querySelector('.topNav nav')
-
-      const toggleMenu =()=>{
-        topNavMenu.classList.toggle('change')
-      }
-    </script>
-
-    <style>
-      .prismBox {
-        position: absolute;
-        top: 0;
-        right: 0;
-        height: 100%;
-        width: 50%;
-      }
-
-      .prism {
-        top: 0;
-        right: 100px;
-        position: absolute;
-        height: 100%;
-        width: 300px;
-        -webkit-transform: skew(-19deg);
-        -moz-transform: skew(-19deg);
-        -o-transform: skew(-19deg);
-        background: var(--theme);
-        opacity: 0.4;
-        z-index: 1;
-      }
-
-      .prismSmall {
-        position: absolute;
-        height: 200px;
-        width: 200px;
-        opacity: 1;
-        background: var(--theme);
-        -webkit-transform: skew(-19deg);
-        -moz-transform: skew(-19deg);
-        -o-transform: skew(-19deg);
-        bottom: 50px;
-        right: 50px;
-      }
-    </style>
-
-    <style>
-      .topArea {
-        width: 90%;
-        padding: 2vh 5%;
-        position: relative;
-        min-height: 65vh;
-        display: flex;
-        flex-direction: column;
-        gap: 20vh 0;
-        background-position: center;
-        background-size: cover;
-        overflow-x: hidden;
-        background-image: url(bg2.jpg);
-      }
-
-      .topNav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 10;
-      }
-
-      .topNav nav {
-        display: flex;
-        gap: 0 1.5rem;
-      }
-      .topNav button{
-        height: 40px;
-        width: 40px;
-        background: var(--theme);
-        color: black;
-        border-radius: 5px;
-        align-items: center;
-        justify-content: center;
-        display: none;
-      }
-      .topNav nav a {
-        font-size: 1rem;
-        color: white;
-        color: black;
-      }
-
-      .topNav legend a {
-        display: flex;
-        align-items: center;
-        font-size: 1.1rem;
-        border-radius: 50px;
-        background: var(--theme);
-      }
-
-      .topNav legend span {
-        background: var(--theme);
-        border-radius: 0 0 0 10px;
-      }
-
-      .topNav legend span,
-      .topNav legend i {
-        padding: 3px;
-      }
-
-      .topNav legend i {
-        height: 100%;
-        border-radius: 0 50%;
-        background: black;
-        color: white;
-      }
-
-      .headBox {
-        z-index: 1;
-      }
-
-      .headBox article {
-        max-width: 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 2rem 0;
-        z-index: -1;
-      }
-
-      .headBox article div {
-        display: flex;
-        flex-direction: column;
-      }
-
-      .headBox article strong {
-        font-size: 2.3rem;
-        color: white;
-      }
-
-      .headBox article small {
-        color: rgb(227, 227, 227);
-      }
-
-      #donate {
-        display: flex;
-        align-items: center;
-        gap: 0 1rem;
-        padding: 10px 65px 10px 10px;
-        height: 50px;
-        position: relative;
-        background: var(--theme);
-        border: 2px solid var(--theme);
-        cursor: pointer;
-      }
-
-      #donate i {
-        position: absolute;
-        right: -10px;
-        width: 50px;
-        height: 50px;
-        background: black;
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: 0.4s ease;
-      }
-
-      #donate:hover i {
-        -webkit-transform: skew(0deg);
-        -moz-transform: skew(0deg);
-        -o-transform: skew(0deg);
-      }
-
-      @media all and (max-width:1300px) {
-        .topNav {
-          flex-direction: column;
-          gap: 1rem 0;
-        }
-
-        .topNav nav {
-          justify-content: space-around;
-          flex-wrap: wrap;
-          gap: 0.3rem 2rem;
-        }
-      }
-
-      @media all and (max-width:850px) {
-        .topArea {
-          gap: 10vh;
-          height: auto;
-          min-height: auto;
-        }
-
-        .headBox {
-          display: flex;
-          justify-content: center;
-          text-align: center;
-        }
-
-        .headBox article {
-          max-width: 100%;
-          align-items: center;
-        }
-
-        .prism {
-          width: 100px;
-          height: 300px;
-        }
-
-        .prismSmall {
-          bottom: revert;
-          top: 0;
-          right: -100px;
-        }
-      }
-
-      @media all and (max-width:650px) {
-        .prismBox {
-          display: none;
-        }
-        .topNav nav{
-          position: fixed;
-          top: -500px;
-          flex-direction: column;
-          align-items: center;
-          width: 100%;
-          background: black;
-          color: white;
-          z-index: 1000;
-          transition: 0.4s ease;
-          gap: 1rem 0;
-          padding: 20px 0;
-        }
-        .topNav nav a{
-          color: white;
-        }
-        .topNav nav.change{
-          top: 0;
-        }
-        .topNav button{
-          display: flex;
-          position: fixed;
-          top: 0;
-          right: 0;
-          border-radius: 0 0 0 10px;
-          z-index: 1100;
-        }
-      }
-    </style>
-
-
 
     <section class="serviceBox">
       <div class="service" data-aos="fade-up">
@@ -390,86 +123,6 @@
           <a class="material-symbols-outlined">double_arrow</a>
         </p>
       </div>
-
-      <style>
-        .serviceBox {
-          width: 90%;
-          padding: 5vh 5%;
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-          gap: 2.5rem 0;
-        }
-
-        .service {
-          border: 2px solid lightgray;
-          width: 250px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 60px 20px;
-          cursor: pointer;
-          position: relative;
-        }
-
-        .sPrism {
-          display: block;
-          width: 120px;
-          left: 50px;
-          top: 0;
-          position: absolute;
-          height: 100%;
-          -webkit-transform: skew(-19deg);
-          -moz-transform: skew(-19deg);
-          -o-transform: skew(-19deg);
-          background: whitesmoke;
-        }
-
-        .sPrismSmall {
-          width: 80px;
-          height: 60px;
-          position: absolute;
-          top: -20px;
-          left: -2px;
-          background: white;
-          border: 2px solid var(--theme);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: 0.4s ease;
-        }
-
-        .sPrismSmall img {
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
-          aspect-ratio: 4/3;
-        }
-
-        .service p {
-          z-index: 10;
-          display: flex;
-          gap: 0.5rem 0;
-          flex-direction: column;
-          text-align: center;
-          align-items: center;
-        }
-
-        .service strong {
-          font-family: 'Alegreya Sans SC', sans-serif;
-        }
-
-        .service p a {
-          color: var(--theme);
-          padding: 3px;
-          border-radius: 2px;
-          color: black;
-          border: 1px solid var(--theme);
-        }
-
-        .service:hover .sPrismSmall {
-          left: 20px;
-        }
-      </style>
     </section>
 
     <section class="aboutBox">
@@ -483,82 +136,13 @@
           <span>In the dynamic landscape of today's business world, KS stands as a beacon of innovation and
             excellence.</span>
         </p>
-        <p>Our journey began with a singular vision: to make a meaningful impact on the world through our endeavors.
+        <p>
+          Our journey began with a singular vision: to make a meaningful impact on the world through our endeavors.
           Over the years, this vision has manifested in a tapestry of successful businesses, each contributing to the
-          advancement of its respective industry.</p>
+          advancement of its respective industry.
+        </p>
       </section>
     </section>
-
-    <style>
-      .aboutBox {
-        width: 90%;
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        background: ghostwhite;
-        padding: 5vh 5%;
-      }
-
-      .aboutBox .left {
-        display: flex;
-        gap: 0.5rem;
-        align-items: flex-end;
-      }
-
-      .aboutBox .right {
-        max-width: 500px;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem 0;
-      }
-
-      .aboutBox .right p:nth-child(1) {
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        left: -50px;
-      }
-
-      .aboutBox .right strong {
-        font-size: 1.5rem;
-      }
-
-      .aboutBox .left img:nth-child(1) {
-        height: 370px;
-        width: 250px;
-        object-fit: cover;
-        position: relative;
-        bottom: 25px;
-      }
-
-      .aboutBox .left img:nth-child(2) {
-        width: 280px;
-        height: 170px;
-        object-fit: cover;
-      }
-
-      @media all and (max-width:1050px) {
-        .aboutBox {
-          align-items: center;
-          flex-direction: column;
-        }
-
-        .aboutBox .right p:nth-child(1) {
-          left: revert;
-        }
-      }
-
-      @media all and (max-width:650px) {
-        .aboutBox .left {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .aboutBox .right {
-          text-align: center;
-        }
-      }
-    </style>
 
     <section class="blogBox">
       <strong>Hello KS <sub></sub></strong>
@@ -581,126 +165,15 @@
       }
     </script>
 
-    <style>
-      .blogBox {
-        width: 90%;
-        padding: 3vh 5%;
-        display: flex;
-        flex-direction: column;
-        gap: 1.3rem 0;
-      }
-
-      .blogBox strong {
-        font-size: 2rem;
-      }
-
-      .blogBox strong sub {
-        width: 40px;
-        height: 5px;
-        display: block;
-        background: black;
-      }
-
-      .blogs {
-        display: grid;
-        gap: 1.5rem 0;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      }
-
-      .blog {
-        width: 300px;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem 0;
-        border: 2px solid lightgray;
-      }
-
-      @media all and (max-width:850px) {
-        .blogBox {
-          align-items: center;
-        }
-
-        .blogBox strong sub {
-          width: 100%;
-        }
-
-        .service,
-        .blog {
-          margin: auto;
-        }
-
-      }
-
-      .blog div {
-        display: block;
-        width: 90%;
-        align-items: flex-start;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem 0;
-        margin-bottom: 10px;
-        padding: 0 5%;
-      }
-
-      .blog img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-      }
-
-      .blog i {
-        border: 1px solid black;
-        padding: 3px 10px;
-        border-radius: 100px;
-      }
-    </style>
-
     <section class="donateBox">
       <img src="worker.avif" alt="">
       <p data-aos="fade-up">
         <strong>Every contribution becomes a catalyst for change.</strong>
-        <button id="donate">
+        <a href="donate.html" id="donate">
           Donate <i class="material-symbols-outlined">paid</i>
-        </button>
+        </a>
       </p>
     </section>
-
-    <style>
-      .donateBox{
-        width: 90%;
-        padding: 5vh 5%;
-        /* height: 50vh; */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0 2rem;
-        background: ghostwhite;
-      }
-      .donateBox img{
-        width: 230px;
-        height: 350px;
-        border-radius: 200px;
-        object-fit: cover;
-      }
-      .donateBox p{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 2rem 0;
-      }
-      .donateBox strong{
-        display: flex;
-        width: 400px;
-        /* border: 1px solid black; */
-        font-size: 2rem;
-      }
-      .donateBox button{
-        background: var(--theme);
-      }
-
-
-    </style>
-
 
     <footer>
       <logo-tag>
@@ -722,79 +195,17 @@
         <hr>
         <section>
           <a href="tel:+233204932808"><i class="material-symbols-outlined">smartphone</i> <span>+233204932808</span></a>
-          <a href="mailto:"><i class="material-symbols-outlined">mail</i> <span>ks@mail.com</span></a>
+          <a href="mailto:info@kwamestevens.com"><i class="material-symbols-outlined">mail</i>
+            <span>info@kwamestevens.com</span></a>
         </section>
       </main>
     </footer>
-    <style>
-      footer {
-        background: black;
-        width: 90%;
-        padding: 8vh 5%;
-        display: flex;
-        flex-direction: column;
-        gap: 2rem 0;
-      }
-      footer main{
-        display: flex;
-        gap: 0 5rem;
-        flex-wrap: wrap;
-      }
-      footer section{
-        display: flex;
-        flex-direction: column;
-        gap: 0.4rem;
-      }
-      footer section a{
-        color: white;
-      }
-      footer a{
-        display: flex;
-        align-items: center;
-        gap: 0 0.5rem;
-      }
-
-      footer section:nth-last-child(1) a {
-        color: wheat;
-      }
-      footer hr{
-        height: 100px;
-        width: 2px;
-        background: white;
-      }
-      @media all and (max-width:850px){
-        .donateBox{
-          flex-direction: column;
-          gap: 2rem 0;
-        }
-        .donateBox strong, .donateBox p{
-          width: 100%;
-          text-align: center;
-          align-items: center;
-        }
-        footer, footer .links{
-          /* display: flex; */
-          flex-direction: column;
-          text-align: center;
-        }
-        footer{
-          align-items: center;
-        }
-        footer .links{
-          gap: 1.5rem 0;
-
-          align-items: flex-start;
-        }
-        footer hr{
-          display: none;
-        }
-      }
-    </style>
   </section>
 
   <script>
     AOS.init();
   </script>
+  <script src="js/index.js"></script>
 </body>
 
 </html>

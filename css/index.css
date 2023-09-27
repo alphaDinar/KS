@@ -1,0 +1,156 @@
+.topArea {
+  min-height: 65vh;
+  gap: 20vh 0;
+  background-image: url(../bg2.jpg);
+}
+
+.headBox {
+  z-index: 1;
+}
+
+
+.headBox article {
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem 0;
+  z-index: -1;
+}
+
+.headBox article div {
+  display: flex;
+  flex-direction: column;
+}
+
+.headBox article strong {
+  font-size: 2.3rem;
+  color: white;
+}
+
+.headBox article small {
+  color: rgb(227, 227, 227);
+}
+
+.aboutBox {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  background: ghostwhite;
+  padding: 5vh 5%;
+}
+
+.aboutBox .left {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-end;
+}
+
+.aboutBox .right {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem 0;
+}
+
+.aboutBox .right p:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: -50px;
+}
+
+.aboutBox .right strong {
+  font-size: 1.5rem;
+}
+
+.aboutBox .left img:nth-child(1) {
+  height: 370px;
+  width: 250px;
+  object-fit: cover;
+  position: relative;
+  bottom: 25px;
+}
+
+.aboutBox .left img:nth-child(2) {
+  width: 280px;
+  height: 170px;
+  object-fit: cover;
+}
+
+.donateBox {
+  width: 90%;
+  padding: 5vh 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0 2rem;
+  background: ghostwhite;
+}
+
+.donateBox img {
+  width: 230px;
+  height: 350px;
+  border-radius: 200px;
+  object-fit: cover;
+}
+
+.donateBox p {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem 0;
+}
+
+.donateBox strong {
+  display: flex;
+  width: 400px;
+  font-size: 2rem;
+}
+
+@media all and (max-width:1050px) {
+  .aboutBox {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .aboutBox .right p:nth-child(1) {
+    left: revert;
+  }
+}
+
+@media all and (max-width:850px) {
+  .headBox {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .headBox article {
+    max-width: 100%;
+    align-items: center;
+  }
+  .donateBox {
+    flex-direction: column;
+    gap: 2rem 0;
+  }
+
+  .donateBox strong,
+  .donateBox p {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+}
+
+@media all and (max-width:650px) {
+  .aboutBox .left {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .aboutBox .right {
+    text-align: center;
+  }
+}
