@@ -1,4 +1,4 @@
-const topNav = document.querySelector('.topNav')
+const topNav = document.querySelector(".topNav");
 topNav.innerHTML = `
 <logo-tag>
 <img src="logo2.png" alt="">
@@ -11,10 +11,12 @@ topNav.innerHTML = `
 <a href="donate.html" id="donateSmall">Donate</a>
 </nav>
 <button class="material-symbols-outlined" onclick="toggleMenu()">menu</button>
-`
+`;
 
-const topNavMenu = document.querySelector('.topNav nav')
+const topNavMenu = document.querySelector(".topNav nav");
 
-const toggleMenu =()=>{
-  topNavMenu.classList.toggle('change')
-}
+topNavMenu.addClassName = "menu";
+
+const toggleMenu = () => {
+  topNavMenu.classList.toggle("change");
+};
