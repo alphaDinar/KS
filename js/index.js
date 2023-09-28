@@ -5,9 +5,9 @@ topNav.innerHTML = `
 </logo-tag>
 <nav>
 <a href="index.html">Home</a>
-<a href="">About</a>
-<a href="">HelloKS</a>
-<a href="">Contact</a>
+<a href="about.html">About</a>
+<a href="blog.html">HelloKS</a>
+<a href="contact.html">Contact</a>
 <a href="donate.html" id="donateSmall">Donate</a>
 </nav>
 <button class="material-symbols-outlined" onclick="toggleMenu()">menu</button>
