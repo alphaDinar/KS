@@ -1,0 +1,9 @@
+@media screen and (max-width: 780px) {
+  .postsBox .row1 {
+    grid-template-columns: 1fr !important;
+  }
+
+  .postsBox .row2 {
+    grid-template-columns: 1fr !important;
+  }
+}
