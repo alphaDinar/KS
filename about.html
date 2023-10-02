@@ -34,8 +34,40 @@
     <section class="page">
       <section class="topArea">
         <section class="topNav"></section>
-      </section>
+        <article class="gist">
+          <strong>Welcome to Kwame Stevens <sub></sub></strong>
+          <p>
+            At Kwame Stevens, we are not just a company; we are a force of innovation, a catalyst for positive change, and a beacon of excellence. We step onto the global stage with a vision to redefine what's possible and to leave an indelible mark on the world.
+            Today, as we introduce Kwame Stevens to the world, we invite you to be a part of our transformative journey. Together, we can shape a future that's brighter, more sustainable, and filled with boundless opportunities. 
+          </p>
+        </article>
 
+
+        <style>
+          .gist{
+            padding: 8px 8px;
+            color: white;
+            width: calc(100% - 16px);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            background: black;
+          }
+          .gist strong{
+            font-size: 1.3rem;
+          }
+          .gist strong sub{
+            height: 3px;
+            width: 40px;
+            background: white;
+            display: block;
+          }
+          .gist p{
+            font-size: 1.1rem;
+          }
+        </style>
+
+      </section>
       <footer>
         <logo-tag>
           <img src="logo2.png" alt="" />
@@ -95,8 +127,9 @@
     </style>
 
     <script>
-      AOS.init();
+      
     </script>
+
     <script src="js/index.js"></script>
   </body>
 </html>

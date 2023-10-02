@@ -1,11 +1,13 @@
 .topArea {
   min-height: 65vh;
   gap: 20vh 0;
-  background-image: url(../bg2.jpg);
+  background-image: url(../Logos/bg2.jpg);
 }
 
 .headBox {
-  z-index: 1;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
 }
 
 .headBox article {
@@ -35,6 +37,7 @@
   width: 90%;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 2rem;
   background: ghostwhite;
   padding: 5vh 5%;
@@ -56,26 +59,17 @@
 .aboutBox .right p:nth-child(1) {
   display: flex;
   flex-direction: column;
-  position: relative;
-  left: -50px;
 }
 
 .aboutBox .right strong {
   font-size: 1.5rem;
 }
 
-.aboutBox .left img:nth-child(1) {
-  height: 370px;
-  width: 250px;
+.aboutBox .left img, #aboutImage1, #aboutImage2 {
+  height: 300px;
   object-fit: cover;
   position: relative;
   bottom: 25px;
-}
-
-.aboutBox .left img:nth-child(2) {
-  width: 280px;
-  height: 170px;
-  object-fit: cover;
 }
 
 .donateBox {
@@ -89,9 +83,7 @@
 }
 
 .donateBox img {
-  width: 230px;
-  height: 350px;
-  border-radius: 200px;
+  width: 280px;
   object-fit: cover;
 }
 

@@ -21,88 +21,95 @@
 
 <body>
   <section class="loader"></section>
+
   <section class="page">
     <section class="topArea">
       <section class="topNav"></section>
     </section>
     <section class="categoryBox">
       <section>
-        <span id="all">Top Stories <sub style="width: 100%"></sub></span>
-        <span id="news">News <sub></sub></span>
-        <span id="business">Business <sub></sub></span>
-        <span id="entertainment">Entertainment <sub></sub></span>
-        <span id="sports">Sports <sub></sub></span>
+        <span>Top Stories <sub style="width: 100%"></sub></span>
+        <span>News <sub></sub></span>
+        <span>Business <sub></sub></span>
+        <span>Entertainment <sub></sub></span>
+        <span>Sports <sub></sub></span>
       </section>
-      <div>
-        <i class="material-symbols-outlined">search</i>
-        <input type="text" class="searchPost">
+      <div style="display: flex;flex-wrap: wrap;gap: 1rem;background: transparent;">
+        <button id="username" style="padding: 10px; background: skyblue; color: white;"></button>
+        <button style="padding: 10px;" id="logout">Logout</button>
       </div>
     </section>
 
     <section class="postsBox">
-      <section class="row1"></section>
-      <section class="row2"></section>
+      <section class="row2">
+        <a href="editBlog.html" class="post" id="addPost">+</a>
+        <style>
+          #addPost{
+            height: 360px;
+            border: 1px solid lightgray;
+            font-size: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        </style>
+      </section>
     </section>
   </section>
 
   <script src="js/index.js"></script>
   <script type="module">
     import app from './js/firebase.js'
+    const fireAuth = getAuth(app);
+    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js"
+    
+    const username = document.getElementById('username')
+    onAuthStateChanged( fireAuth,user=>{
+      if(user){
+        username.innerHTML = user.email
+      }else{
+        window.location.href = 'login.html'
+      }
+    })
+
+    const logout = document.getElementById('logout')
+    logout.onclick =()=>{
+      signOut(fireAuth)
+      .then(()=>{window.location.href = 'login.html'})
+    }
+
+    
 
     import { getDatabase, ref, set, get, child, update, query, remove, onValue } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js"
     const db = getDatabase();
 
+    
+
     const row1 = document.querySelector('.row1')
     const row2 = document.querySelector('.row2')
-    const searchPost = document.querySelector('.searchPost')
-    const catSelect = document.querySelectorAll()
-
-    const runSearchPost =(posts, val)=>{
-      posts.forEach((el,i)=>{
-        if(el.dataset.title.toLowerCase().includes(val)){
-          el.style.display = 'block'
-        }else{
-          el.style.display = 'none'
-        }
-      })
-      console.log(posts, val)
-    }
 
     var dbRef = ref(db)
     get(child(dbRef, "Posts/"))
       .then((objs) => {
-        var objs = Object.values(objs.val()).sort((a, b) => b.timePosted - a.timePosted)
+        var objs = Object.values(objs.val())
         objs.map((el, i) => {
           var postLiData = `
-            <a href="viewBlog.html?${el.title}" class="post" data-title="${el.title}" data-category="${el.category}">
+            <a href="editBlog.html?${el.title}" class="post">
               <img src="${el.img}" alt="" />
               <p>
                 <span>${el.title}</span>
                 <small>${el.description}</small>
-                <small class="time">${getTimeSince(el.timePosted)}</small>
               </p>
             </a>
             `
-          if (i === 0 || i === 1) {
-            row1.innerHTML += postLiData
-          } else {
-            row2.innerHTML += postLiData
-          }
+          row2.innerHTML += postLiData
+          
         })
-        const posts = document.querySelectorAll('.post')
-        searchPost.oninput =()=>{
-          runSearchPost(posts, searchPost.value.toLowerCase())
-        }
-
         endLoader()
-
       })
-      .catch((error) => console.log(error))
+      .catch((error) => {console.log(error), endLoader()})
   </script>
 
-
-  <script>
-  </script>
 
 </body>
 

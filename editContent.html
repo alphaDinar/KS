@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/eb75260fb3.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+    integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <title>KS - Home</title>
+</head>
+
+<body>
+  <section class="page">
+    <section class="topArea">
+      <section class="topNav"></section>
+      <section class="headBox">
+        <article>
+          <div>
+            <textarea name="introText" class="contentInput"></textarea>
+            <textarea name="introSubText" class="contentInput"></textarea>
+
+            <script>
+              const introText = document.querySelector('textarea[name="introText"]')
+              const introSubText = document.querySelector('textarea[name="introSubText"]')
+
+
+              const introTextCon = "Welcome to KS company limited, Creating a high business hub for all"
+              const introSubTextCon = "Enjoy a healthy and a happy services in all our subsidiaries company's"
+
+              introText.innerHTML = introTextCon
+              introSubText.innerHTML = introSubTextCon
+
+            </script>
+
+          </div>
+
+          <style>
+            .contentInput, .contentInputMax {
+              width: 500px;
+              padding: 10px;
+              background: transparent;
+              color: white;
+              margin: 10px 0;
+              border: 1px solid white;
+              font-size: 1.1rem;
+              resize: none;
+            }
+            .contentInput{
+              height: 70px;
+            }
+            .contentInputMax{
+              height: 200px;
+            }
+          </style>
+
+          <label for="addBgImage" style="background: var(--theme);padding: 5px;">
+            Change Bg Image
+            <input type="file" id="addBgImage" accept="image/*" style="display: none;">
+          </label>
+
+
+          <script>
+            const addBgImage = document.getElementById('addBgImage');
+            const topArea = document.querySelector('.topArea');
+
+            addBgImage.onchange =()=>{
+              console.log(URL.createObjectURL(addBgImage.files[0]))
+              topArea.style.backgroundImage = `url(${URL.createObjectURL(addBgImage.files[0])})`;
+            }
+
+            
+          </script>
+
+          <style>
+            label{
+              cursor: pointer;
+            }
+          </style>
+          <!-- <a href="donate.html" id="donate">
+            Donate <i class="material-symbols-outlined">paid</i>
+          </a> -->
+        </article>
+      </section>
+
+      <div class="prismBox">
+        <div class="prism"></div>
+        <div class="prismSmall"></div>
+      </div>
+    </section>
+
+    <section class="serviceBox">
+      <a class="service" data-aos="fade-up">
+        <span style="font-size: 4rem;">+</span>
+      </a>
+      <div class="service" data-aos="fade-up">
+        <sub class="sPrism"></sub>
+        <sub class="sPrismSmall">
+          <img src="Logos/trans.png" />
+        </sub>
+        <p>
+          <strong>KS TRANSPORT</strong>
+          <small>Your Safety and more</small>
+          <a class="material-symbols-outlined">double_arrow</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="aboutBox">
+      <section class="left">
+        <label for="addAboutImage1">
+          <input type="file" id="addAboutImage1" accept="image/*" style="display: none;">
+          <img id="aboutImage1" src="Logos/worker.avif" alt="" />
+        </label>
+        <label for="addAboutImage2">
+          <input type="file" id="addAboutImage2" accept="image/*" style="display: none;">
+          <img id="aboutImage2" src="Logos/worker2.jpg" alt="" />
+        </label>
+      </section>
+      <section class="right">
+        <p style="left: 0;">
+          <input type="text" name="aboutText" style="font-size: 1.3rem;font-weight: 600;background: transparent;"
+            class="contentInputMin">
+          <textarea name="aboutTextSub1" style="color: black;" class="contentInput"></textarea>
+        </p>
+
+        <p>
+          <textarea name="aboutTextSub2" style="color: black;" class="contentInputMax"></textarea>
+        </p>
+
+        
+        <script>
+          const aboutText = document.querySelector('input[name="aboutText"]');
+          const aboutTextSub1 = document.querySelector('textarea[name="aboutTextSub1"]');
+          const aboutTextSub2 = document.querySelector('textarea[name="aboutTextSub2"]');
+
+
+          const aboutTextCon = "KS provides a full range of services";
+          const aboutTextSub1Con = "In the dynamic landscape of today's business world, KS stands as a beacon of innovation and excellence.";
+          const aboutTextSub2Con = "Our journey began with a singular vision: to make a meaningful impact on the world through our endeavors.Over the years, this vision has manifested in a tapestry of successful businesses, each contributing to the advancement of its respective industry.";
+
+          aboutTextCon.value = aboutTextCon;
+          aboutTextSub1.innerHTML = aboutTextSub1Con;
+          aboutTextSub2.innerHTML = aboutTextSub2Con;
+
+          const addAboutImage1 = document.getElementById('addAboutImage1');
+          const addAboutImage2 = document.getElementById('addAboutImage2');
+          const aboutImage1 = document.getElementById('aboutImage1');
+          const aboutImage2 = document.getElementById('aboutImage2');
+
+          addAboutImage1.onchange =()=>{
+            aboutImage1.src = URL.createObjectURL(addAboutImage1.files[0])
+          }
+
+          addAboutImage2.onchange =()=>{
+            aboutImage2.src = URL.createObjectURL(addAboutImage2.files[0])
+          }
+
+        </script>
+      </section>
+    </section>
+
+    <section class="blogBox">
+      <strong>HelloKS <sub></sub></strong>
+      <section class="blogs">
+        <a class="blog" href='editBlog.html' data-aos="fade-up"
+          style='color:black;justify-content: center; align-items: center;'>
+          <span style="font-size: 4rem;">+</span>
+        </a>
+      </section>
+    </section>
+
+    <script type="module">
+      import app from './js/firebase.js'
+
+      import { getDatabase, ref, set, get, child, update, query, remove, onValue } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js"
+      const db = getDatabase();
+
+      const blogs = document.querySelector('.blogs')
+
+      var dbRef = ref(db)
+      get(child(dbRef, "Posts/"))
+        .then((objs) => {
+          var objs = Object.values(objs.val()).sort((a, b) => b.timePosted - a.timePosted)
+          objs.map((el, i) => {
+            if (i < 4) {
+              var postLiData = `
+              <a class="blog" href='viewBlog.html?${el.title}' data-aos="fade-up" style='color:black'>
+              <img src="${el.img}" alt="" />
+              <div>
+                <h3>${el.title}</h3>
+                <span>${el.description}</span>
+                <small>23rd August, 2023</small>
+                <i class="material-symbols-outlined">east</i>
+              </div>
+              </a>
+              `
+              blogs.innerHTML += postLiData
+            }
+          })
+        })
+        .catch((error) => console.log(error))
+    </script>
+
+    <!-- <section class="donateBox">
+      <img src="Logos/bg3.jpg" alt="" />
+      <p data-aos="fade-up">
+        <strong>Every contribution becomes a catalyst for change.</strong>
+        <a href="donate.html" id="donate">
+          Donate <i class="material-symbols-outlined">paid</i>
+        </a>
+      </p>
+    </section> -->
+
+    <footer>
+      <logo-tag>
+        <img src="Logos/logo2.png" alt="" />
+      </logo-tag>
+      <main class="links">
+        <!-- <section>
+          <a href=""><i class="material-symbols-outlined">directions_bus</i>
+            <span>KS Transport</span></a>
+          <a href=""><i class="material-symbols-outlined">water_bottle</i>
+            <span>KS mineral water</span>
+          </a>
+          <a href=""><i class="material-symbols-outlined">volunteer_activism</i> KS
+            Foundation</a>
+          <a href=""><i class="material-symbols-outlined">support_agent</i> KS
+            Advertising agency</a>
+        </section>
+        <hr />
+        <section>
+          <a href=""><i class="material-symbols-outlined">agriculture</i> KS Farms</a>
+          <a href=""><i class="material-symbols-outlined">local_shipping</i> KS Import
+            and export</a>
+          <a href=""><i class="material-symbols-outlined">headphones</i> KS
+            Entertainment</a>
+        </section>
+        <hr /> -->
+        <section>
+          <a href="tel:+233204932808"><i class="material-symbols-outlined">smartphone</i>
+            <span>+233204932808</span></a>
+          <a href="mailto:info@kwamestevens.com"><i class="material-symbols-outlined">mail</i>
+            <span>info@kwamestevens.com</span></a>
+        </section>
+      </main>
+    </footer>
+  </section>
+
+  <style>
+    .menu {
+      font-weight: 700;
+    }
+  </style>
+
+  <script>
+    AOS.init();
+  </script>
+  <script src="js/index.js"></script>
+</body>
+
+</html>

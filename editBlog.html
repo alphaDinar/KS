@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/eb75260fb3.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+    integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <title>Document</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/blog.css">
+</head>
+
+<body>
+  <section class="loader"></section>
+  <section class="page">
+    <section class="topArea">
+      <section class="topNav"></section>
+    </section>
+    <a href="blogManager.html" id="backLink" class="material-symbols-outlined">chevron_left</a>
+    <form class="viewBlogBox" onsubmit="event.preventDefault()">
+      <section>
+        <label for="image">
+          Change Image
+        </label>
+        <input type="file" accept="image/*" name="image" id="image" style="display: none;">
+        <img src="" alt="">
+      </section>
+      <section>
+        <div>
+          <span>Title</span>
+          <input type="text" name="title" value="" required>
+        </div>
+        <div>
+          <span>Category</span>
+          <select name="category" required>
+            <option value="politics">Politics</option>
+            <option value="news">News</option>
+            <option value="business">Business</option>
+            <option value="trends">Trends</option>
+            <option value="sports">Sports</option>
+            <option value="entertainment">Entertainment</option>
+          </select>
+        </div>
+        <div>
+          <span>Description</span>
+          <textarea name="description" required></textarea>
+        </div>
+        <div style="flex-direction: row;">
+          <button id="addPost">Save</button>
+          <button id="remPost" style="display: none; background: tomato;">Delete</button>
+        </div>
+      </section>
+
+    </form>
+  </section>
+  <script src="js/index.js"></script>
+
+
+  <script type="module">
+    import app from './js/firebase.js'
+
+    import { getDatabase, ref, set, get, child, update, query, remove, orderByChild, equalTo, onValue, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js"
+    import { getStorage, ref as sRef, getDownloadURL, uploadBytes } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-storage.js";
+
+    const db = getDatabase();
+    const storageDB = getStorage();
+
+    const form = document.querySelector('form')
+    const titleIn = document.querySelector('input[name="title"]')
+    const categoryIn = document.querySelector('select[name="category"]')
+    const descriptionIn = document.querySelector('textarea[name="description"]')
+    const imageIn = document.querySelector('input[name="image"]')
+    const imageBox = document.querySelector('form img')
+    const addPost = document.getElementById('addPost')
+    const remPost = document.getElementById('remPost')
+
+    imageIn.onchange = () => {
+      imageBox.src = URL.createObjectURL(imageIn.files[0])
+    }
+
+    const updateItem = (blogKey) => {
+      const image = imageIn.files[0]
+      if (image) {
+        uploadBytes(sRef(storageDB, 'Posts/' + image.name), image)
+          .then((res) => {
+            getDownloadURL(res.ref)
+              .then((img) => {
+                update(ref(db, "Posts/" + blogKey), {
+                  title: titleIn.value,
+                  category: categoryIn.value,
+                  description: descriptionIn.value,
+                  img: img,
+                  timePosted: serverTimestamp()
+                })
+                  .then((console.log('added')))
+                  .catch((error) => console.log(error))
+              })
+              .catch((error) => console.log(error))
+          })
+          .catch((error) => console.log(error))
+      } else {
+        update(ref(db, "Posts/" + blogKey), {
+          title: titleIn.value,
+          category: categoryIn.value,
+          description: descriptionIn.value,
+          timePosted: serverTimestamp()
+        })
+          .then(window.location.href = 'blogManager.html')
+          .catch((error) => console.log(error))
+      }
+    }
+
+    const removeItem = (blogKey) => {
+      remove(ref(db, "Posts/" + blogKey))
+        .then(window.location.href = 'blogManager.html')
+        .catch((error) => console.log(error))
+    }
+
+
+    const createItem = () => {
+      if (imageIn.files[0]) {
+        const image = imageIn.files[0]
+        uploadBytes(sRef(storageDB, 'Posts/' + image.name), image)
+          .then((res) => {
+            getDownloadURL(res.ref)
+              .then((img) => {
+                set(ref(db, "Posts/" + titleIn.value), {
+                  title: titleIn.value,
+                  category: categoryIn.value,
+                  description: descriptionIn.value,
+                  img: img,
+                  timePosted: serverTimestamp()
+                })
+                  .then(() => {
+                    form.reset()
+                    console.log(image)
+                    imageBox.src = ''
+                    endLoader()
+                    alert('Post has been added')
+                  })
+                  .catch((error) => console.log(error))
+              })
+              .catch((error) => console.log(error))
+          })
+          .catch((error) => console.log(error))
+      }
+    }
+
+    let titleParams = window.location.href.split('?')[1];
+
+    if (titleParams) {
+      var titleParam = ''
+      titleParams.split('%20').forEach((el) => {
+        titleParam += ' ' + el
+      })
+      titleParam = titleParam.trim()
+
+      remPost.style.display = 'flex'
+      const dataRef = ref(db, 'Posts/');
+      const queryRef = query(dataRef, orderByChild('title'), equalTo(titleParam));
+      await get(queryRef)
+        .then((res) => {
+          endLoader()
+          const blog = Object.values(res.val())[0]
+          const blogKey = Object.keys(res.val())[0]
+          titleIn.value = blog.title
+          descriptionIn.value = blog.description
+          imageBox.src = blog.img
+          addPost.onclick = () => {
+            startLoader()
+            updateItem(blogKey)
+          }
+          remPost.onclick = () => {
+            startLoader()
+            removeItem(blogKey)
+          }
+        })
+    } else {
+      endLoader()
+      addPost.onclick = () => {
+        startLoader()
+        createItem()
+      }
+    }
+
+
+  </script>
+
+</body>
+
+</html>
+
+
+<style>
+  label {
+    padding: 5px 10px;
+    border: 1px solid darkgray;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  form {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  form img {
+    width: 100%;
+    border: 1px solid lightgray;
+    height: 50vh;
+    object-fit: cover;
+    /* border-radius: 10px; */
+  }
+
+  @media all and (max-width:1000px) {
+    form {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media all and (max-width:500px) {
+    form img {
+      height: 35vh;
+    }
+  }
+
+
+  input {
+    height: 30px;
+  }
+
+  input,
+  textarea {
+    padding: 10px 2.5%;
+    width: 95%;
+    font-size: 1.1rem;
+    border: 1px solid darkgray;
+  }
+
+  textarea {
+    height: 200px;
+    resize: none;
+  }
+
+  .viewBlogBox {
+    width: 90%;
+    padding: 0 5% 3vh 5%;
+  }
+
+  .viewBlogBox section,
+  .viewBlogBox section div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .viewBlogBox section {
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .viewBlogBox section div {
+    gap: 0.5rem;
+    width: 100%;
+
+  }
+
+  .viewBlogBox section div span {
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  button {
+    padding: 8px 15px;
+    color: white;
+    background: black;
+    border-radius: 3px;
+    font-size: 1.1rem;
+  }
+</style>
