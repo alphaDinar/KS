@@ -24,9 +24,16 @@
   color: black;
   height: 50px;
   position: relative;
+  padding: 3px;
   background: var(--theme);
   border: 2px solid var(--theme);
   cursor: pointer;
+}
+
+@media all and (max-width:650px){
+  #donate{
+    font-size: 1rem;
+  }
 }
 
 #donate i {
@@ -84,6 +91,7 @@ nav{
   scroll-behavior: smooth;
 }
 
+
 .prismBox {
   position: absolute;
   top: 0;
@@ -137,7 +145,7 @@ nav{
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  z-index: 10;
+  z-index: 100;
 }
 
 .topNav nav {
